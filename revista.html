@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Mi Revista Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function playAudio() {
+            const audio = document.getElementById('background-music');
+            audio.play().catch(error => {
+                console.log('Reproducción automática bloqueada:', error);
+            });
+        }
+
+        function showWelcomeMessage() {
+            document.getElementById('welcome-message').style.display = 'block';
+            setTimeout(() => {
+                sessionStorage.setItem('audioPlaying', 'true');
+                window.location.href = 'cuerpo.html';
+            }, 3000);
+        }
+
+        function activateExperience() {
+            playAudio();
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('login-container').style.display = 'block';
+        }
+
+        window.onload = function() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+    </script>
+</head>
+<body>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Activa la Experiencia Completa</h2>
+            <p>Haz clic en el botón de abajo para activar la experiencia completa, incluyendo la música de fondo.</p>
+            <button onclick="activateExperience()">Activar</button>
+        </div>
+    </div>
+    <div id="login-container" class="login-container" style="display: none;">
+        <h1>Bienvenidos a Mi Revista Digital</h1>
+        <button class="login-button" onclick="showWelcomeMessage()">Inicio</button>
+    </div>
+    <div id="welcome-message" class="welcome-message">
+        <h2>Bienvenido a la Futurista Revista Digital</h2>
+        <p>Preparando el contenido para ti...</p>
+    </div>
+    <div class="audio-player">
+        <audio id="background-music" src="recursos/You look lonely..i can fix that x Home - Resonance (slowed to literal perfection + reverb) - Chilli Mas (youtube) (1).mp3" loop></audio>
+    </div>
+</body>
+</html>

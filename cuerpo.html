@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Revista Digital</title>
+    <link rel="stylesheet" href="cuerpo.css">
+</head>
+<body>
+    <header>
+        <section id="galeria">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <img src="recursos/videos/05Techfix-illo-articleLarge.gif" alt="Descripción de la imagen 1">
+                    <img src="recursos/videos/1_7FjngVLlu4mEknkiP3NqQg.gif" alt="Descripción de la imagen 2">
+                    <img src="recursos/videos/meta.gif" alt="Descripción de la imagen 3">
+                </div>
+                <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+                <button class="carousel-control next" onclick="nextSlide()">❯</button>
+            </div>
+        </section>
+        <h1>Mi Revista Digital</h1>
+    </header>
+    <nav>
+        <a href="revista.html">Inicio</a>
+        <a href="nosotros.html">Sobre Nosotros</a>
+        <a href="#Metaverso">presentación</a>
+    </nav>
+    <main>
+        <section id="articulo1">
+            <h2>Metaverso</h2>
+            <p>El metaverso es un entorno virtual inmersivo y compartido que utiliza tecnologías avanzadas como la realidad virtual (VR), la realidad aumentada (AR) y la inteligencia artificial (IA). En este espacio, los usuarios pueden interactuar a través de avatares digitales, participar en actividades diversas y experimentar una realidad alternativa.</p>
+        </section>
+        <section id="articulo2">
+            <h2>Origen</h2>
+            <p>Fue acuñado por el autor de ciencia ficción Neal Stephenson en su novela “Snow Crash” (1992), donde describe un mundo virtual en el que las personas interactúan a través de avatares.</p>
+            <h3>Aplicaciones del Metaverso</h3>
+                
+                <p>Socialización: Espacios virtuales donde las personas pueden reunirse y socializar.
+                    Educación: Aulas virtuales que permiten una experiencia de aprendizaje inmersiva.
+                    Trabajo: Oficinas virtuales para reuniones y colaboraciones a distancia.
+                    Entretenimiento: Juegos, conciertos y eventos deportivos en entornos virtuales.
+                    Comercio: Mercados digitales donde se pueden comprar y vender bienes virtuales.</p>
+            <h3>Futuro del Metaverso</h3>
+                <p>El metaverso tiene el potencial de transformar la forma en que interactuamos con la tecnología y entre nosotros. Empresas como Meta (anteriormente Facebook) y Microsoft están invirtiendo fuertemente en su desarrollo, lo que sugiere que veremos avances significativos en los próximos años.</p>  </section>
+       
+    </main>
+    <footer>
+        <audio id="background-music" src="recursos/You look lonely..i can fix that x Home - Resonance (slowed to literal perfection + reverb) - Chilli Mas (youtube) (1).mp3" loop></audio>
+        <script>
+            window.addEventListener('load', function() {
+                if (sessionStorage.getItem('audioPlaying') === 'true') {
+                    var audio = document.getElementById('background-music');
+                    audio.play();
+                }
+            });
+
+            let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-inner img');
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            const offset = -currentSlide * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+
+        // Set interval to automatically change slides every 10 seconds
+        setInterval(nextSlide, 10000);
+
+        // Initialize the first slide
+        window.onload = function() {
+            showSlide(currentSlide);
+        }
+        </script>
+        <p>© 2024 Mi Revista Digital. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
