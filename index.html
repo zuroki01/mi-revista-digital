@@ -22,7 +22,7 @@
         }
 
         function activateExperience() {
-            //playAudio();
+            playAudio();
             document.getElementById('popup').style.display = 'none';
             document.getElementById('login-container').style.display = 'block';
         }
@@ -33,15 +33,19 @@
     </script>
 </head>
 <body>
-    
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Bienvenido...</h2>
+            <p>Haz clic en el botón de abajo para ingresar.</p>
+            <button onclick="activateExperience()">Activar</button>
+        </div>
+    </div>
     <div id="login-container" class="login-container" style="display: none;">
         <h1>Bienvenidos a Mi Revista Digital</h1>
         <button class="login-button" onclick="showWelcomeMessage()">Inicio</button>
     </div>
 
-     <div id="video-container" style="width: 100%; max-width: 600px; margin: auto;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dgK8CejZzZA?si=nDK1C4wPGc9PEQU3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    
     <div id="welcome-message" class="welcome-message">
         <h2>Hola...</h2>
         <p>Preparando el contenido para ti...</p>
